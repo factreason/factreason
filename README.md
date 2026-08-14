@@ -113,6 +113,7 @@ Public keys are published and rotated via JWKS at `https://factreason.com/.well-
 
 ---
 
-## Licence
+## Licence & Contact
 
 MIT. Attribution requirement for APIs.guru source data: CC-BY 4.0.
+Questions, support, or data reports: `hello@factreason.com`.
