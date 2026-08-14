@@ -3,6 +3,8 @@ name: Publish to MCP Registry
 on:
   push:
     branches: ["main"]
+    paths:
+      - "server.json"
   workflow_dispatch:
 
 jobs:
@@ -24,4 +26,12 @@ jobs:
         run: ./mcp-publisher login github-oidc
 
       - name: Publish server to MCP Registry
-        run: ./mcp-publisher publish server.json
+        run: |
+          OUTPUT=$(./mcp-publisher publish server.json 2>&1) || {
+            if echo "$OUTPUT" | grep -q "cannot publish duplicate version"; then
+              echo "Version in server.json is already published to the MCP registry. Skipping."
+              exit 0
+            fi
+            echo "$OUTPUT"
+            exit 1
+          }
