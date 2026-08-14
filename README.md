@@ -1,8 +1,10 @@
-# FactReason
-
-**Reference data agents need before they write code.** Dependency upgrade advisories for npm and PyPI, developer API schemas across 1,097 services, and electronic component specifications — over MCP, Ed25519-signed, with the evidence attached.
-
-MCP endpoint: `https://factreason.com/mcp` · [Agent-readable docs](https://factreason.com/llms.txt) · [factreason.com](https://factreason.com)
+<div align="center">
+  <img src="./logo.svg" width="96" height="96" alt="FactReason Logo" />
+  <h1>FactReason</h1>
+  <p><strong>Reference data agents need before they write code.</strong></p>
+  <p>Dependency upgrade advisories for npm and PyPI, developer API schemas across 1,097 services, and electronic component specifications — over MCP, Ed25519-signed, with evidence attached.</p>
+  <p><code>https://factreason.com/mcp</code> · <a href="https://factreason.com/llms.txt">Agent Docs</a> · <a href="https://factreason.com">factreason.com</a></p>
+</div>
 
 ---
 
