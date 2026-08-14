@@ -77,6 +77,10 @@ Streamable HTTP. No install, no package to pull.
 
 Manifest: [`/.well-known/mcp.json`](https://factreason.com/.well-known/mcp.json)
 
+The container/stdio bridge accepts an optional `FACTREASON_API_KEY` environment variable and forwards it as a Bearer
+credential to the same live endpoint. Tool discovery works without a key; metered lookups return HTTP 402 when neither
+a key nor a valid x402 payment is supplied.
+
 Get a key — no signup, no card:
 
 ```bash

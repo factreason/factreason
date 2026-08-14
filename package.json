@@ -1,6 +1,6 @@
 {
   "name": "factreason",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Signed, evidence-carrying reference data for coding agents over MCP",
   "type": "module",
   "main": "index.js",
@@ -8,7 +8,8 @@
     "factreason": "./index.js"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node --test test/*.test.js"
   },
   "keywords": [
     "mcp",

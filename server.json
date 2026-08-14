@@ -3,7 +3,7 @@
   "name": "io.github.factreason/factreason",
   "title": "FactReason",
   "description": "Reference data agents need before writing code: dependency advisories, API schemas, component specs.",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "websiteUrl": "https://factreason.com",
   "repository": {
     "url": "https://github.com/factreason/factreason",
