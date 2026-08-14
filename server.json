@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.factreason/factreason",
+  "title": "FactReason",
+  "description": "Reference data agents need before writing code: dependency advisories, API schemas, component specs.",
+  "version": "2.0.0",
+  "websiteUrl": "https://factreason.com",
+  "repository": {
+    "url": "https://github.com/factreason/factreason",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://factreason.com/mcp"
+    }
+  ]
+}
