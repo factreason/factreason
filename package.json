@@ -1,0 +1,22 @@
+{
+  "name": "factreason",
+  "version": "2.0.0",
+  "description": "Signed, evidence-carrying reference data for coding agents over MCP",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "factreason": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agents",
+    "developer-tools",
+    "reference-data"
+  ],
+  "author": "FactReason (hello@factreason.com)",
+  "license": "MIT"
+}
