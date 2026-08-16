@@ -2,7 +2,7 @@
 export const TOOLS = [
   {
     "name": "factreason_package_upgrade_advisory",
-    "description": "Compare two exact published npm or PyPI versions and return publisher-declared registry metadata changes, including yanks, exports, module format, runtime floors, peers, and licences, with before/after evidence. This is a read-only metered lookup; misses are never billed and API keys receive a daily free allowance. Use it for package metadata; use factreason_api_breaking_changes for a third-party HTTP API, and consult changelogs for behavioural changes.",
+    "description": "Compare two exact published npm or PyPI versions and return publisher-declared registry metadata changes, including yanks, exports, module format, runtime floors, peers, and licences, with before/after evidence. Set responseFormat=\"compact\" for tokenizer-measured context savings; the backward-compatible default is \"full\". This is a read-only metered lookup; misses are never billed and API keys receive a daily free allowance. Use it for package metadata; use factreason_api_breaking_changes for a third-party HTTP API, and consult changelogs for behavioural changes.",
     "annotations": {
       "readOnlyHint": true,
       "destructiveHint": false,
@@ -34,6 +34,15 @@ export const TOOLS = [
           "type": "string",
           "minLength": 1,
           "description": "Exact target version, e.g. \"5.0.0\""
+        },
+        "responseFormat": {
+          "type": "string",
+          "enum": [
+            "full",
+            "compact"
+          ],
+          "default": "full",
+          "description": "Use compact to remove repeated prose and fields while retaining evidence; full preserves the legacy response contract"
         }
       },
       "required": [
@@ -62,6 +71,9 @@ export const TOOLS = [
         "breakingCount": {
           "type": "number"
         },
+        "advisoryCount": {
+          "type": "number"
+        },
         "advisories": {
           "type": "array",
           "items": {
@@ -77,6 +89,28 @@ export const TOOLS = [
         },
         "scope": {
           "type": "string"
+        },
+        "tokenMetrics": {
+          "type": "object",
+          "properties": {
+            "fullTokens": {
+              "type": "number"
+            },
+            "compactTokens": {
+              "type": "number"
+            },
+            "savedTokens": {
+              "type": "number"
+            },
+            "reductionPct": {
+              "type": "number"
+            },
+            "encoding": {
+              "type": "string",
+              "const": "o200k_base"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": true
@@ -215,7 +249,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_integration_brief",
-    "description": "Compile one callable third-party API brief: base URL, auth scheme, required parameters and types, request body, and documented response codes. Service is required and endpoint optionally narrows the operation; returns the full brief plus a compact form. Uses metered access. Prefer factreason_api_schema when exploring multiple endpoints.",
+    "description": "Compile one callable third-party API brief: base URL, auth scheme, required parameters and types, request body, and documented response codes. Service is required and endpoint optionally narrows the operation. Set responseFormat=\"compact\" for tokenizer-measured context savings; the backward-compatible default returns the full brief plus compact form. Uses metered access. Prefer factreason_api_schema when exploring multiple endpoints.",
     "annotations": {
       "readOnlyHint": true,
       "destructiveHint": false,
@@ -234,6 +268,15 @@ export const TOOLS = [
           "type": "string",
           "minLength": 1,
           "description": "Optional path or operation fragment used to select one call"
+        },
+        "responseFormat": {
+          "type": "string",
+          "enum": [
+            "full",
+            "compact"
+          ],
+          "default": "full",
+          "description": "Use compact for the callable facts only; full preserves the legacy brief response"
         }
       },
       "required": [
@@ -254,12 +297,33 @@ export const TOOLS = [
           "type": "string"
         },
         "compact": {
-          "type": "object",
-          "additionalProperties": true
+          "type": "string"
         },
         "brief": {
           "type": "object",
           "additionalProperties": true
+        },
+        "tokenMetrics": {
+          "type": "object",
+          "properties": {
+            "fullTokens": {
+              "type": "number"
+            },
+            "compactTokens": {
+              "type": "number"
+            },
+            "savedTokens": {
+              "type": "number"
+            },
+            "reductionPct": {
+              "type": "number"
+            },
+            "encoding": {
+              "type": "string",
+              "const": "o200k_base"
+            }
+          },
+          "additionalProperties": false
         },
         "message": {
           "type": "string"
@@ -392,7 +456,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_component_spec",
-    "description": "Look up electronics component pin assignments, voltage range, package, and alternatives. Pass exact partNumber for one component or query for a capability search; partNumber takes precedence if both are supplied. Uses metered access and returns matches or suggestions. Confirm critical values against the manufacturer datasheet.",
+    "description": "Look up electronics component pin assignments, voltage range, package, and alternatives. Pass exact partNumber for one component or query for a capability search; partNumber takes precedence if both are supplied. For exact lookups, set responseFormat=\"compact\" for tokenizer-measured context savings; the backward-compatible default is \"full\". Uses metered access and returns matches or suggestions. Confirm critical values against the manufacturer datasheet.",
     "annotations": {
       "readOnlyHint": true,
       "destructiveHint": false,
@@ -411,6 +475,15 @@ export const TOOLS = [
           "type": "string",
           "minLength": 1,
           "description": "Free-text capability search, e.g. \"3.3V ARM MCU with SPI\""
+        },
+        "responseFormat": {
+          "type": "string",
+          "enum": [
+            "full",
+            "compact"
+          ],
+          "default": "full",
+          "description": "Use compact for an exact part lookup; full preserves the legacy data response"
         }
       },
       "anyOf": [
@@ -440,12 +513,40 @@ export const TOOLS = [
           "type": "number"
         },
         "compact": {
+          "type": "string"
+        },
+        "provenance": {
           "type": "object",
           "additionalProperties": true
+        },
+        "qualityScore": {
+          "type": "number"
         },
         "data": {
           "type": "object",
           "additionalProperties": true
+        },
+        "tokenMetrics": {
+          "type": "object",
+          "properties": {
+            "fullTokens": {
+              "type": "number"
+            },
+            "compactTokens": {
+              "type": "number"
+            },
+            "savedTokens": {
+              "type": "number"
+            },
+            "reductionPct": {
+              "type": "number"
+            },
+            "encoding": {
+              "type": "string",
+              "const": "o200k_base"
+            }
+          },
+          "additionalProperties": false
         },
         "results": {
           "type": "array",

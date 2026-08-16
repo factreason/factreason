@@ -2,7 +2,7 @@
   <img src="./logo.svg" width="96" height="96" alt="FactReason Logo" />
   <h1>FactReason</h1>
   <p><strong>Reference data agents need before they write code.</strong></p>
-  <p>Dependency upgrade advisories for npm and PyPI, developer API schemas across 1,097 services, and electronic component specifications — over MCP, Ed25519-signed, with evidence attached.</p>
+  <p>Dependency upgrade advisories for npm and PyPI, developer API schemas across 1,097 services, and electronic component specifications — over MCP, Ed25519-signed, with optional tokenizer-measured compact responses and evidence attached.</p>
   <p><code>https://factreason.com/mcp</code> · <a href="https://factreason.com/llms.txt">Agent Docs</a> · <a href="https://factreason.com">factreason.com</a></p>
 </div>
 
@@ -55,6 +55,10 @@ Via MCP, the same question is one tool call:
   "arguments": { "registry": "npm", "name": "chalk", "from": "4.1.2", "to": "5.0.0" }
 }
 ```
+
+Set `responseFormat: "compact"` on supported heavy MCP tools to remove repeated fields and prose while retaining the facts an agent needs. Package advisories preserve `evidenceField`, `evidenceBefore`, `evidenceAfter`, and `migrationHint`. Each compact response includes `tokenMetrics` counted with `o200k_base`. The default remains `full` for compatibility, and compact output never bypasses authorization or changes the query price.
+
+Token savings vary with the response. Metrics count one exact JSON `structuredContent` payload and include the `tokenMetrics` object itself; the matching text block remains for MCP clients that do not consume structured content yet. The private application repository also carries a repeatable `npm run benchmark:tokens` fixture so published claims can be checked before release.
 
 **Every finding carries `evidenceField`, `evidenceBefore` and `evidenceAfter`** — the exact registry metadata field and its values either side of the change. An agent can verify the claim against npm or PyPI directly rather than taking our word for it.
 
