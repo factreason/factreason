@@ -12,7 +12,7 @@ The upgrade that breaks CommonJS codebases. Two breaking findings, neither of
 them inferred.
 
 ```
-GET https://factgrid.co.uk/api/v1/packages/npm/chalk/advisory?from=4.1.2&to=5.0.0
+GET https://factreason.com/api/v1/packages/npm/chalk/advisory?from=4.1.2&to=5.0.0
 Authorization: Bearer <key>
 ```
 
@@ -42,7 +42,7 @@ is withdrawn from resolution. Package managers will still install a yanked
 version if something pins it. This is the kind of thing an agent needs told.
 
 ```
-GET https://factgrid.co.uk/api/v1/packages/pypi/urllib3/advisory?from=1.26.20&to=2.0.0
+GET https://factreason.com/api/v1/packages/pypi/urllib3/advisory?from=1.26.20&to=2.0.0
 Authorization: Bearer <key>
 ```
 

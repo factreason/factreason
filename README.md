@@ -3,7 +3,7 @@
   <h1>FactReason</h1>
   <p><strong>Reference data agents need before they write code.</strong></p>
   <p>Dependency upgrade advisories for npm and PyPI, developer API schemas across 1,097 services, and electronic component specifications — over MCP, Ed25519-signed, with optional tokenizer-measured compact responses and evidence attached.</p>
-  <p><code>https://factreason.com/mcp</code> · <a href="https://factreason.com/llms.txt">Agent Docs</a> · <a href="https://factreason.com">factreason.com</a></p>
+  <p><code>https://factreason.com/mcp</code> · <a href="https://factreason.com/docs">Documentation</a> · <a href="https://factreason.com/openapi.json">OpenAPI</a> · <a href="https://factreason.com/skill.md">Agent skill</a> · <a href="https://factreason.com">factreason.com</a></p>
 </div>
 
 ---
@@ -82,6 +82,8 @@ Streamable HTTP. No install, no package to pull.
 ```
 
 Manifest: [`/.well-known/mcp.json`](https://factreason.com/.well-known/mcp.json)
+
+Human quickstart and workflow guidance: [`/docs`](https://factreason.com/docs). Agents can fetch the same material as Markdown from [`/docs.md`](https://factreason.com/docs.md) or use the complete index at [`/llms-full.txt`](https://factreason.com/llms-full.txt).
 
 The container/stdio bridge accepts an optional `FACTREASON_API_KEY` environment variable and forwards it as a Bearer
 credential to the same live endpoint. Tool discovery works without a key; metered lookups return HTTP 402 when neither
