@@ -9,6 +9,7 @@
 import readline from 'node:readline';
 
 import { TOOLS } from './tools.js';
+import { normalizeProxyResponse } from './proxy-response.js';
 
 const PROTOCOL_VERSION = '2025-06-18';
 const API_KEY = process.env.FACTREASON_API_KEY?.trim();
@@ -36,8 +37,12 @@ rl.on('line', async (line) => {
           },
           serverInfo: {
             name: 'factreason',
-            version: '2.0.2'
-          }
+            version: '2.0.3'
+          },
+          instructions:
+            'Before changing package.json or requirements files, call factreason_package_upgrade_advisory with the exact ' +
+            'current and target npm/PyPI versions. Misses are free; successful lookups use the daily free key allowance, ' +
+            'prepaid credit, or x402 at the remote endpoint.'
         }
       };
       process.stdout.write(JSON.stringify(response) + '\n');
@@ -62,7 +67,7 @@ rl.on('line', async (line) => {
           body: JSON.stringify(req)
         });
         const data = await proxyRes.json();
-        process.stdout.write(JSON.stringify(data) + '\n');
+        process.stdout.write(JSON.stringify(normalizeProxyResponse(id, proxyRes, data)) + '\n');
       } catch (err) {
         process.stdout.write(
           JSON.stringify({

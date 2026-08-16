@@ -58,6 +58,8 @@ Via MCP, the same question is one tool call:
 
 **Every finding carries `evidenceField`, `evidenceBefore` and `evidenceAfter`** — the exact registry metadata field and its values either side of the change. An agent can verify the claim against npm or PyPI directly rather than taking our word for it.
 
+Successful advisory lookups use the API key's 50-query daily free allowance, then cost **$0.02 per query**. Misses are never billed. Wallet-equipped agents can pay the 402 challenge directly with x402 on Base.
+
 ---
 
 ## Connect
@@ -109,11 +111,11 @@ curl -X POST https://factreason.com/api/v1/keys/create \
 
 ## Proof-of-Fact Signatures
 
-Every response is signed by our Ed25519 private key:
+Successful REST data responses and MCP tool-call responses are signed by our Ed25519 private key:
 
-- `X-FactReason-Signature`: Ed25519 signature of the raw response payload
-- `X-FactReason-Key-Id`: Stable signing key identifier
-- `X-FactReason-Signature-Alg`: `ed25519`
+- `X-Warehouse-Proof-Signature`: Ed25519 signature of the response payload
+- `X-Fact-Public-Key-Id`: Stable signing key identifier
+- `X-Fact-Signature-Alg`: `EdDSA`
 
 Public keys are published and rotated via JWKS at `https://factreason.com/.well-known/jwks.json`.
 

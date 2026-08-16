@@ -15,4 +15,8 @@ test('publishes the complete FactReason MCP contract', () => {
     assert.equal(typeof tool.annotations.idempotentHint, 'boolean', `${tool.name} idempotent annotation`);
     assert.equal(typeof tool.annotations.openWorldHint, 'boolean', `${tool.name} open-world annotation`);
   }
+
+  const advisory = TOOLS.find(tool => tool.name === 'factreason_package_upgrade_advisory');
+  assert.match(advisory.description, /metered lookup/);
+  assert.doesNotMatch(advisory.description, /unbilled catalogue lookup/);
 });

@@ -2,7 +2,7 @@
 export const TOOLS = [
   {
     "name": "factreason_package_upgrade_advisory",
-    "description": "Compare two exact published npm or PyPI versions and return publisher-declared registry metadata changes, including yanks, exports, module format, runtime floors, peers, and licences, with before/after evidence. This is a read-only, unbilled catalogue lookup. Use it for package metadata; use factreason_api_breaking_changes for a third-party HTTP API, and consult changelogs for behavioural changes.",
+    "description": "Compare two exact published npm or PyPI versions and return publisher-declared registry metadata changes, including yanks, exports, module format, runtime floors, peers, and licences, with before/after evidence. This is a read-only metered lookup; misses are never billed and API keys receive a daily free allowance. Use it for package metadata; use factreason_api_breaking_changes for a third-party HTTP API, and consult changelogs for behavioural changes.",
     "annotations": {
       "readOnlyHint": true,
       "destructiveHint": false,
