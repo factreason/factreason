@@ -3,7 +3,7 @@
   "name": "io.github.factreason/factreason",
   "title": "FactReason",
   "description": "Check exact npm/PyPI upgrades for evidence-backed breaking changes; query APIs and components.",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "websiteUrl": "https://factreason.com",
   "repository": {
     "url": "https://github.com/factreason/factreason",

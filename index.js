@@ -37,11 +37,11 @@ rl.on('line', async (line) => {
           },
           serverInfo: {
             name: 'factreason',
-            version: '2.0.3'
+            version: '2.0.5'
           },
           instructions:
             'Before changing package.json or requirements files, call factreason_package_upgrade_advisory with the exact ' +
-            'current and target npm/PyPI versions. Misses are free; successful lookups use the daily free key allowance, ' +
+            'current and target npm/PyPI versions. Misses are free; successful lookups draw on the key\'s one-off trial credit, ' +
             'prepaid credit, or x402 at the remote endpoint.'
         }
       };
