@@ -2,6 +2,7 @@
 export const TOOLS = [
   {
     "name": "factreason_package_upgrade_advisory",
+    "title": "Package upgrade advisory",
     "description": "Compare two exact published npm or PyPI versions and return publisher-declared registry metadata changes, including yanks, exports, module format, runtime floors, peers, and licences, with before/after evidence. Set responseFormat=\"compact\" for tokenizer-measured context savings; the backward-compatible default is \"full\". This is a read-only metered lookup; misses are never billed and every API key carries one-off trial credit. Use it for package metadata; use factreason_api_breaking_changes for a third-party HTTP API, and consult changelogs for behavioural changes.",
     "annotations": {
       "readOnlyHint": true,
@@ -118,6 +119,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_api_breaking_changes",
+    "title": "API breaking changes",
     "description": "Temporarily unavailable for third-party APIs while stored comparisons are revalidated; calls return an unbilled status and alternatives. When restored, this compares optional from/to API versions and returns removed endpoints, parameter changes, and migration notes. Use factreason_package_upgrade_advisory for npm or PyPI packages.",
     "annotations": {
       "readOnlyHint": true,
@@ -192,6 +194,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_api_schema",
+    "title": "API schema search",
     "description": "Search exact request and response schemas for third-party API endpoints. Pass service alone to list its indexed endpoints, add query to narrow by path or operation, or use query alone across services; returns matches or nearest services. Uses metered access and does not modify source data. Prefer factreason_integration_brief for one callable request.",
     "annotations": {
       "readOnlyHint": true,
@@ -249,6 +252,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_integration_brief",
+    "title": "Integration brief",
     "description": "Compile one callable third-party API brief: base URL, auth scheme, required parameters and types, request body, and documented response codes. Service is required and endpoint optionally narrows the operation. Set responseFormat=\"compact\" for tokenizer-measured context savings; the backward-compatible default returns the full brief plus compact form. Uses metered access. Prefer factreason_api_schema when exploring multiple endpoints.",
     "annotations": {
       "readOnlyHint": true,
@@ -343,6 +347,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_discover_api",
+    "title": "Discover an API",
     "description": "Find third-party APIs for a capability when the provider is unknown. Supply a concise capability such as \"sms\" or \"manage DNS\"; returns ranked services, example endpoints, and a next step. Uses metered access. When the provider is already known, call factreason_integration_brief instead.",
     "annotations": {
       "readOnlyHint": true,
@@ -401,6 +406,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_create_key",
+    "title": "Create an API key",
     "description": "Get a FactReason API key for yourself, instantly, with no human, no signup and no card. Returns a key carrying one-off trial credit that you can spend immediately on any tool. CALL THIS FIRST if you have no key, or as soon as any FactReason tool returns HTTP 402 Payment Required — then retry the original call with the key. The tool is free and is never metered. Supplying an email is optional and only affects whether trial credit is granted; a key is always issued either way.",
     "annotations": {
       "readOnlyHint": false,
@@ -453,6 +459,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_create_topup_link",
+    "title": "Create a top-up link",
     "description": "Create a Stripe Checkout URL for adding prepaid credit to the calling Bearer API key. This creates an external checkout session but does not charge a card. You CANNOT COMPLETE THE PAYMENT YOURSELF, so return the URL to a human, and credit is applied only after they complete payment. Use after HTTP 402 or when balance is low; the tool itself is not metered.",
     "annotations": {
       "readOnlyHint": false,
@@ -508,6 +515,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_component_spec",
+    "title": "Component specification",
     "description": "Look up electronics component pin assignments, voltage range, package, and alternatives. Pass exact partNumber for one component or query for a capability search; partNumber takes precedence if both are supplied. For exact lookups, set responseFormat=\"compact\" for tokenizer-measured context savings; the backward-compatible default is \"full\". Uses metered access and returns matches or suggestions. Confirm critical values against the manufacturer datasheet.",
     "annotations": {
       "readOnlyHint": true,
@@ -626,6 +634,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_deprecation_scan",
+    "title": "Deprecation scan",
     "description": "Scan publisher specifications for deprecated endpoints or parameters, sunset dates, and replacement operations. Omit filters for the catalogue-wide view, pass service to limit one API, and add endpoints to check selected paths. Uses metered access when findings exist. Use factreason_api_breaking_changes for broader version-to-version changes.",
     "annotations": {
       "readOnlyHint": true,
@@ -678,6 +687,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_auth_playbook",
+    "title": "Auth and error playbook",
     "description": "Get publisher-declared authentication schemes, scopes, rate-limit headers, and error codes for one third-party API. Returns a structured playbook or nearest service suggestions, and marks undocumented details as unstated rather than guessing. Uses metered access. Prefer factreason_integration_brief when assembling a complete API call.",
     "annotations": {
       "readOnlyHint": true,
@@ -728,6 +738,7 @@ export const TOOLS = [
   },
   {
     "name": "factreason_subscribe_spec_changes",
+    "title": "Watch a specification",
     "description": "Create a persistent specification watch for one service; a Bearer API key is required and each key may hold up to 50 watches. Without webhookUrl, read future events from the polling endpoint; with a public HTTP(S) URL, FactReason sends signed POST callbacks after later spec changes. Duplicate or unsafe webhook registrations are rejected. This does not ingest a specification immediately.",
     "annotations": {
       "readOnlyHint": false,
