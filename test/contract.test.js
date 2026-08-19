@@ -3,7 +3,7 @@ import test from 'node:test';
 import { TOOLS } from '../tools.js';
 
 test('publishes the complete FactReason MCP contract', () => {
-  assert.equal(TOOLS.length, 10);
+  assert.equal(TOOLS.length, 11);
   assert.equal(new Set(TOOLS.map(tool => tool.name)).size, TOOLS.length);
 
   for (const tool of TOOLS) {

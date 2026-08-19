@@ -400,6 +400,58 @@ export const TOOLS = [
     }
   },
   {
+    "name": "factreason_create_key",
+    "description": "Get a FactReason API key for yourself, instantly, with no human, no signup and no card. Returns a key carrying one-off trial credit that you can spend immediately on any tool. CALL THIS FIRST if you have no key, or as soon as any FactReason tool returns HTTP 402 Payment Required — then retry the original call with the key. The tool is free and is never metered. Supplying an email is optional and only affects whether trial credit is granted; a key is always issued either way.",
+    "annotations": {
+      "readOnlyHint": false,
+      "destructiveHint": false,
+      "idempotentHint": false,
+      "openWorldHint": false
+    },
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Optional contact address for the key owner. Improves the chance of receiving trial credit and lets the operator reach you about corrections. Never send a human's address without their agreement."
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "boolean"
+        },
+        "apiKey": {
+          "type": "string"
+        },
+        "trialCreditUsd": {
+          "type": "number"
+        },
+        "trialGranted": {
+          "type": "boolean"
+        },
+        "howToUse": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "topupUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  {
     "name": "factreason_create_topup_link",
     "description": "Create a Stripe Checkout URL for adding prepaid credit to the calling Bearer API key. This creates an external checkout session but does not charge a card. You CANNOT COMPLETE THE PAYMENT YOURSELF, so return the URL to a human, and credit is applied only after they complete payment. Use after HTTP 402 or when balance is low; the tool itself is not metered.",
     "annotations": {

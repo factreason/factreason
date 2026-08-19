@@ -37,7 +37,7 @@ rl.on('line', async (line) => {
           },
           serverInfo: {
             name: 'factreason',
-            version: '2.0.5'
+            version: '2.1.0'
           },
           instructions:
             'Before changing package.json or requirements files, call factreason_package_upgrade_advisory with the exact ' +

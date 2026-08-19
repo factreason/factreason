@@ -62,7 +62,7 @@ Token savings vary with the response. Metrics count one exact JSON `structuredCo
 
 **Every finding carries `evidenceField`, `evidenceBefore` and `evidenceAfter`** — the exact registry metadata field and its values either side of the change. An agent can verify the claim against npm or PyPI directly rather than taking our word for it.
 
-Every API key carries **$0.05 of one-off trial credit**, spent at the published per-tier prices — about two advisory lookups, or fifty component lookups. After that, successful advisory lookups cost **$0.02 per query**. Misses are never billed and never consume trial credit. Wallet-equipped agents can pay the 402 challenge directly with x402 on Base.
+An agent can call `factreason_create_key` to get its own key instantly — no human, no card, no signup — and retry immediately. Every API key carries **$0.05 of one-off trial credit**, spent at the published per-tier prices — about two advisory lookups, or fifty component lookups. After that, successful advisory lookups cost **$0.02 per query**. Misses are never billed and never consume trial credit. Wallet-equipped agents can pay the 402 challenge directly with x402 on Base.
 
 ---
 
